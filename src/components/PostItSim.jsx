@@ -36,7 +36,7 @@ export function PostItSim() {
 		<div className='container-fluid'>
 			<header>
 				<h1 className='fw-bold'>Post-it Simulator!</h1>
-				<div className='d-flex flex-column flex-sm-row gap-5 my-2'>
+				<div className='d-flex flex-column flex-sm-row column-gap-5 row-gap-3 my-2'>
 					<input
 						type='text'
 						ref={titleRef}
