@@ -1,13 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+
+/* Breakpoint "small" de Bootstrap. */
+@media (min-width: 768px) {
+	input#title {
+		width: 25%;
+	}
+
+	input#description {
+		width: 50%;
+	}
+
+	button#agregarTarea {
+		width: 25%;
+	}
+}
+
+.reenie-beanie-regular {
+	font-family: "Reenie Beanie", cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	padding: 1% 5%;
+	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #666;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+h1 {
+	color: #111;
+}
+
+.card {
+	aspect-ratio: 1;
+	box-shadow: 7.5px 7.5px 15px;
+	border-radius: 1px;
 }
