@@ -1,3 +1,6 @@
+/* *** IMPORTANTE *** */
+// Para acceder al repositorio de GitHub de esta app: https://github.com/gitthingsdan/eva3frontend/tree/main
+// Para acceder a una versión en línea de esta app: https://gitthingsdan.github.io/eva3frontend
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'

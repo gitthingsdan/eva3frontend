@@ -1,3 +1,14 @@
+@keyframes pulse {
+	from {
+		border: solid black 1px
+	}
+
+	to {
+		border: solid red 1.5px;
+		background-color: rgb(255, 155, 155);
+	}
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
 
 @media (min-width: 768px) {
@@ -21,13 +32,13 @@
 }
 
 body {
-	padding: 1% 5%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
 		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	background-color: #666;
+	padding: 1% 5%;
 }
 
 code {
@@ -35,8 +46,24 @@ code {
 		monospace;
 }
 
-h1 {
-	color: #111;
+header {
+	text-align: center;
+
+	&::after {
+		content: 'Por favor, complete el campo "Descripción".';
+		color: red;
+		opacity: 0;
+		transition: opacity 0.25s;
+	}
+
+	&.show-after::after {
+		opacity: 1;
+	}
+
+	h1 {
+		color: #111;
+		text-align: left;
+	}
 }
 
 .card {

@@ -13,7 +13,19 @@ export function PostItSim() {
 		const title = titleRef.current.value
 		const description = descriptionRef.current.value
 		const isImportant = isImportantRef.current.checked
-		if (description === '') return
+		const descInput = document.getElementById('description')
+		const header = document.getElementsByTagName('header').item(0)
+		if (description === '') {
+			descInput.focus()
+			descInput.style.animation =
+				'pulse 1s ease-in-out infinite alternate'
+			header.classList.add('show-after')
+			descInput.oninput = () => {
+				descInput.style.animation = ''
+				header.classList.remove('show-after')
+			}
+			return
+		}
 		setPostIts(prevPostIts => {
 			const newPostIt = {
 				id: uuid(),
@@ -27,6 +39,7 @@ export function PostItSim() {
 		descriptionRef.current.value = null
 		isImportantRef.current.checked = false
 	}
+
 	const eliminarTarea = id => {
 		const otrosPostIts = postIts.filter(postIt => postIt.id !== id)
 		setPostIts(otrosPostIts)
@@ -49,7 +62,7 @@ export function PostItSim() {
 						type='text'
 						ref={descriptionRef}
 						className='form-control'
-						placeholder='Descripción'
+						placeholder='Descripción (campo requerido)'
 						name='description'
 						id='description'
 					/>
@@ -66,6 +79,7 @@ export function PostItSim() {
 						</label>
 					</div>
 					<button
+						type='button'
 						onClick={agregarTarea}
 						className='btn btn-dark'
 						id='agregarTarea'
