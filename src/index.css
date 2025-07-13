@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
 
-/* Breakpoint "small" de Bootstrap. */
 @media (min-width: 768px) {
 	input#title {
 		width: 25%;
@@ -41,7 +40,7 @@ h1 {
 }
 
 .card {
-	aspect-ratio: 1;
+	height: 225px;
 	box-shadow: 7.5px 7.5px 15px;
 	border-radius: 1px;
 }

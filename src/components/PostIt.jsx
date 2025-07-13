@@ -2,7 +2,6 @@ export function PostIt({ postIt, eliminarTarea }) {
 	const { id, title, description, isImportant } = postIt
 	const handleClick = () => eliminarTarea(id)
 	return (
-		// Este "div className='col'" (que envuelve a las cards de Bootstrap) se puso para que la clase 'g-5' del main de PostItSim funcione, y genere los gutters entre cada PostIt.
 		<div className='col'>
 			<article
 				className='card overflow-auto'
