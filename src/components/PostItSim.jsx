@@ -1,6 +1,17 @@
 import { useState, useRef } from 'react'
 import { v4 as uuid } from 'uuid'
 import { PostIt } from './PostIt'
+/* import axios from 'axios' */
+
+/* axios
+	.get('https://api.example.com/data')
+	.then(response => console.log(response.data))
+	.catch(error => console.error('Error:', error)) */
+
+/* fetch('https://api.example.com/data')
+	.then(response => response.json())
+	.then(data => console.log(data))
+	.catch(error => console.error('Error:', error)) */
 
 export function PostItSim() {
 	const [postIts, setPostIts] = useState([])
@@ -15,7 +26,7 @@ export function PostItSim() {
 		const isImportant = isImportantRef.current.checked
 		const descInput = document.getElementById('description')
 		const header = document.getElementsByTagName('header').item(0)
-		if (description === '') {
+		if (!description.trimEnd()) {
 			descInput.focus()
 			descInput.style.animation =
 				'pulse 1s ease-in-out infinite alternate'

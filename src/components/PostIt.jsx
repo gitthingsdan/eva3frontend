@@ -16,16 +16,8 @@ export function PostIt({ postIt, eliminarTarea }) {
 					aria-label='Close'
 				></button>
 				<section className='card-body'>
-					<h2
-						className='card-title fw-bold fs-4'
-						contenteditable='plaintext-only'
-					>
-						{title}
-					</h2>
-					<p
-						className='card-text reenie-beanie-regular fw-medium fs-3'
-						contenteditable='plaintext-only'
-					>
+					<h2 className='card-title fw-bold fs-4'>{title}</h2>
+					<p className='card-text reenie-beanie-regular fw-medium fs-3'>
 						{description}
 					</p>
 				</section>
