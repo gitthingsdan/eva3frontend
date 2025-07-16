@@ -1,24 +1,31 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { v4 as uuid } from 'uuid'
 import { PostIt } from './PostIt'
-/* import axios from 'axios' */
-
-/* axios
-	.get('https://api.example.com/data')
-	.then(response => console.log(response.data))
-	.catch(error => console.error('Error:', error)) */
-
-/* fetch('https://api.example.com/data')
-	.then(response => response.json())
-	.then(data => console.log(data))
-	.catch(error => console.error('Error:', error)) */
+import axios from 'axios'
 
 export function PostItSim() {
 	const [postIts, setPostIts] = useState([])
+	const [recetas, setRecetas] = useState([])
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(null)
 
 	const titleRef = useRef()
 	const descriptionRef = useRef()
 	const isImportantRef = useRef()
+
+	useEffect(() => {
+		axios
+			.get('https://www.themealdb.com/api/json/v1/1/search.php?f=a')
+			.then(response => {
+				setRecetas(response.data.meals)
+				setLoading(false)
+			})
+			.catch(error => {
+				console.error('Error fetching data:', error)
+				setError(error)
+				setLoading(false)
+			})
+	}, [])
 
 	const agregarTarea = () => {
 		const title = titleRef.current.value
@@ -55,6 +62,14 @@ export function PostItSim() {
 		const otrosPostIts = postIts.filter(postIt => postIt.id !== id)
 		setPostIts(otrosPostIts)
 	}
+
+	const eliminarReceta = id => {
+		const otrasRecetas = recetas.filter(receta => receta.idMeal !== id)
+		setRecetas(otrasRecetas)
+	}
+
+	if (loading) return <p>Loading...</p>
+	if (error) return <p>Error fetching data.</p>
 
 	return (
 		<div className='container-fluid'>
@@ -105,6 +120,18 @@ export function PostItSim() {
 						postIt={postIt}
 						key={postIt.id}
 						eliminarTarea={eliminarTarea}
+					/>
+				))}
+				{recetas.map(receta => (
+					<PostIt
+						postIt={{
+							id: receta.idMeal,
+							title: receta.strMeal,
+							description: receta.strInstructions,
+							isImportant: false,
+						}}
+						key={receta.idMeal}
+						eliminarTarea={eliminarReceta}
 					/>
 				))}
 			</main>
