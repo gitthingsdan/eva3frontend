@@ -9,10 +9,6 @@ export function PostItSim() {
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(null)
 
-	const titleRef = useRef()
-	const descriptionRef = useRef()
-	const isImportantRef = useRef()
-
 	useEffect(() => {
 		axios
 			.get('https://www.themealdb.com/api/json/v1/1/search.php?f=a')
@@ -26,6 +22,10 @@ export function PostItSim() {
 				setLoading(false)
 			})
 	}, [])
+
+	const titleRef = useRef()
+	const descriptionRef = useRef()
+	const isImportantRef = useRef()
 
 	const agregarTarea = () => {
 		const title = titleRef.current.value
